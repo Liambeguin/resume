@@ -1,0 +1,127 @@
+% import custom functions
+\input{functions.tex}
+
+\settopoffset{0}
+\setname{Liam}{Beguin}
+\setjob{Junior software test}
+\def\slist{Linux, Git, Embedded systems, Yocto, Neural networks, C, Bash,
+		   \LaTeX, Kernel device drivers, Unmanned Aerial Systems, Robotics,
+		   Altium Designer}
+
+% Set pdf metadata
+\hypersetup{
+	pdftitle    = {\name: \job},
+	pdfsubject  = {\job},
+	pdfauthor   = {\name},
+	pdfcreator  = {\name},
+	pdfkeywords = {\slist},
+}
+
+\begin{document}
+	\thispagestyle{empty} % remove page number
+	\drawframe % set background colors
+
+	%--------------------------------------------------------------------------
+	%	LEFT COLUMN
+	%--------------------------------------------------------------------------
+
+	\begin{textblock}{\sidebarwidth}(0.5, 0.5)
+		\namesection
+
+		\customsectionleft{Informations}
+
+		\info{location1}{Montreal, CA}
+		\\ \info{social}{@liambeguin}
+		\\ \info{language}{french, english}
+		\\ \info{phone1}{(514) 430-8113}
+		\\ \info{email1}{\href{mailto:liambeguin@gmail.com}{liambeguin@gmail.com}}
+		% \\ \info{car}{driver's license, no car}
+		\vspace{0.6cm}
+
+		\customsectionleft{Summary}
+
+		During my work as an embedded software developer, I had the chance to
+		improve my software skills (C, Bash, Python) and learn a lot about
+		embedded software architecture. Next, I'd like to improve my knowledge
+		of the Linux kernel and start working with the community. Working with
+		others, I realized that I could rapidly adapt to new objectives and
+		constraints set by the industry. I am mostly known for my scientific
+		curiosity and my autonomy.
+		\vspace{1cm}
+
+		\customsectionleft{General Skills}
+
+		\begin{tabular}{ll}
+			Bash          & \showdots{7} \\
+			Yocto         & \showdots{6} \\
+			Git           & \showdots{5} \\
+			C             & \showdots{7} \\
+			Python        & \showdots{6} \\
+			Linux kernel  & \showdots{3} \\
+			Vim           & \showdots{7} \\
+		\end{tabular} \\ \\
+
+		\drawslist{}
+
+	\end{textblock}
+
+
+
+	%--------------------------------------------------------------------------
+	%	RIGHT COLUMN
+	%--------------------------------------------------------------------------
+	\begin{textblock}{13.5}(7.5, 0.5)
+		\customsectionright{Experiences}
+
+		\jobtitle{Xiphos Systems Corporation}{Montreal, CA}
+		Dedicated mainly to space applications, {\em Xiphos Systems} offers hybrid
+		logic and software solutions, providing capabilities for controlling
+		various payloads and adapting existing algorithms in order to improve
+		performance.
+
+		\begin{description}
+			\item[Keywords:] Yocto, Linux shell, Linux kernel, U-Boot, Git, Xilinx zynq, gcc
+			\item[Junior software developer - Part-time] \dotfill 05/2015 to \emph{today}
+				\subitem{Embedded software design}
+				\subitem{Build system maintenance}
+			\item[Junior software developer - Internship] \dotfill 09/2014 to 04/2015
+				\subitem{Quality assurance}
+		\end{description}
+
+		\jobtitle{HiKoB}{Grenoble, FR}
+		{\em HiKoB}'s mission is to develop and provide wireless autonomous multi points
+		data acquisition systems to capture information on the field.
+
+		\begin{description}
+			\item[Keywords:] Altium designer, STM32, Git, openlab, C, IMU
+			\item[Junior software developer - Internship] \dotfill 04/2013 to 07/2013
+				\subitem{Printed Circuit Board (PCB) design}
+				\subitem{Embedded software development}
+		\end{description}
+
+		\customsectionright{Projects}
+
+		\jobtitle{Dronolab}{Montreal, CA}
+		The main goal of this student club is to design and operate autonomous multicopters.
+		These Unmanned Aerial Vehicles (UAVs) can then be used to perform aerial surveys for
+		civil applications.
+
+		\begin{description}
+			\item[Keywords:] Altium designer, STM32, Control theory, Yocto, Linux, iMX6
+			\item[Responsibilities] \hfill
+				\subitem{Printed Circuit Board (PCB) design}
+				\subitem{Software development and maintenance for the autopilot and it's payload}
+				\subitem{Competition crew member at \emph{Unmanned Systems Canada} (2014, 2015)}
+				\subitem{Competition crew member at \emph{AUVSI Seafarer} (2015)}
+		\end{description}
+
+		\customsectionright{Education}
+
+			\centerline{\textbf{\large{Bachelor of science in Electrical Engineering }}}
+			\'Ecole de Technologie Sup\'erieure (ETS) \textbullet{} Montreal, CA \dotfill 09/2013 to 12/2017 \\
+
+			\centerline{\textbf{\large{College diploma in electronics and Computer Science}}}
+			University Joseph Fourier \textbullet{} Grenoble, FR \dotfill 09/2011 to 07/2013 \\
+	\end{textblock}
+\end{document}
+% vim: cc=80

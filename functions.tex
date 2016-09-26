@@ -1,0 +1,157 @@
+% Use US Letter paper, change to a4paper for A4
+\documentclass[letterpaper]{article}
+
+\usepackage{hyperref} % Required for links
+\usepackage{ragged2e}
+\usepackage{tikz}
+\usetikzlibrary{positioning,backgrounds,shadows,snakes}
+
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1cm} % Left margin
+\setlength{\TPVertModule}{1cm} % Top margin
+\setlength{\parindent}{0pt} % Disable paragraph indentation
+
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{calc}
+
+
+
+%-----------------------------------------------------------------------------
+%	MISC
+%-----------------------------------------------------------------------------
+\newcommand{\sidebarwidth}{6}
+
+% this leaves list unchanged and returns \head and \tail
+% there head is the first element and tail is all the rest
+\def\spliceList#1{\expandafter\spliceListAux #1,\END}
+
+\def\spliceListAux#1,#2\END{%
+	\def\head{#1}
+	\ifx\END#2\END
+		\def\tail{}% tail is empty
+	\else
+		% remove trailing comma
+		\expandafter\spliceListAuxAux #2\END
+	\fi
+}
+\def\spliceListAuxAux#1,\END{\def\tail{#1}}
+
+
+
+%-----------------------------------------------------------------------------
+%	COLORS
+%-----------------------------------------------------------------------------
+\definecolor{leftsidecolor}  {HTML}{BDBDBD}
+\definecolor{rightsidecolor} {HTML}{FFFFFF}
+\definecolor{accentcolor}    {HTML}{607D8B}
+\definecolor{darkcolor}      {HTML}{616161}
+
+
+
+%------------------------------------------------------------------------------
+%	MAIN PAGE LAYOUT
+%------------------------------------------------------------------------------
+\newcommand{\topoffset}{2}
+\newcommand{\settopoffset}[1]{\renewcommand{\topoffset}{#1} }
+
+\newcommand{\job}{JobTitle}
+\newcommand{\setjob}[1]{\renewcommand{\job}{#1} }
+
+\newcommand{\name}{YourName}
+\newcommand{\setname}[2]{\renewcommand{\name}{{\sc #1 #2}} }
+
+\def\slist{2,3,4,5}
+
+\newcommand{\namesection}{
+	\vspace{0.5cm}
+	{\Huge \name} \\
+	{\Large\job}
+	\vspace{1cm}
+}
+\newcommand{\drawframe}{
+	% Set the color of the left sidebar
+	\begin{textblock}{1}(0, \topoffset)
+		\begin{tikzpicture}[background rectangle/.style={fill=leftsidecolor},
+			show background rectangle]
+			\fill [leftsidecolor] (0,0) rectangle (8, 30){};
+		\end{tikzpicture}
+	\end{textblock}
+
+	% Set the color of the right sidebar
+	\begin{textblock}{1}(7.2, \topoffset)
+		\begin{tikzpicture}[background rectangle/.style={fill=rightsidecolor},
+			show background rectangle]
+			\fill [rightsidecolor] (0,0) rectangle (20, 30){};
+		\end{tikzpicture}
+	\end{textblock}
+}
+
+
+
+%------------------------------------------------------------------------------
+%	TITLES
+%------------------------------------------------------------------------------
+\newcommand{\jobtitle}[2]{
+	\centerline{\textbf{\large{#1 - #2}}}
+	\vspace{4pt}
+}
+\newcommand{\customsectionleft}[1]{
+	\vspace{8pt}
+	\centerline{\Large \textbf{\uppercase{#1}}}
+	\rule{\textwidth}{1pt}
+}
+\newcommand{\customsectionright}[1]{
+	\vspace{8pt}
+	\centerline{\Large \textbf{\uppercase{#1}}}
+	\rule{\textwidth}{1pt}
+	\vspace{8pt}
+}
+
+
+
+%------------------------------------------------------------------------------
+%	INFO
+%------------------------------------------------------------------------------
+\newcommand{\baseinfodir}{icons/}
+\newcommand{\info}[2]{
+	\begin{tikzpicture}
+		\node (img) {\includegraphics[width=15pt] {\baseinfodir{#1}.png}};
+		\node [right = 0.1cm of img] {#2};
+	\end{tikzpicture}
+}
+
+
+
+%------------------------------------------------------------------------------
+%	SKILLS
+%------------------------------------------------------------------------------
+\newcommand{\skillheight}{0.5}
+\newcommand{\skilloffset}{0.15}
+\newcommand{\skill}[2]{%
+	{#1} \\
+	\begin{tikzpicture}
+		\fill [accentcolor] (0,\skilloffset) rectangle (#2,\skillheight);
+		\draw [darkcolor]   (0,\skilloffset) rectangle (\sidebarwidth,\skillheight);
+	\end{tikzpicture}
+}
+
+\def\myscale{0.35}
+\newcommand{\showdots}[2][10]{%
+	\begin{tikzpicture}
+		\foreach \x in {1,...,#1} {%
+			\ifnum \x > #2
+				\draw[fill=leftsidecolor] (\x*\myscale,-1) circle (0.1cm);
+			\else
+				\draw[fill=black] (\x*\myscale,-1) circle (0.1cm);
+			\fi
+		}
+	\end{tikzpicture}%
+}
+
+\newcommand{\drawslist}{%
+	\spliceList{\slist}
+	\head{}
+	\foreach \s in \tail {\textbullet{}{ }\s{ }}
+}
+% vim: set cc=80
