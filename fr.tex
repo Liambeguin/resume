@@ -1,0 +1,128 @@
+% import custom functions
+\input{functions.tex}
+
+\settopoffset{0}
+\setname{Liam}{Beguin}
+\setjob{D\'eveloppeur logiciel junior}
+\def\slist{Linux, Git, Syst\`emes embarqu\'es, Yocto, R\'eseaux de neurones, C, Bash,
+		   \LaTeX, Kernel device drivers, Syst\`emes a\'eriens autonomes, Robotique,
+		   Altium Designer}
+
+% Set pdf metadata
+\hypersetup{
+	pdftitle    = {\name: \job},
+	pdfsubject  = {\job},
+	pdfauthor   = {\name},
+	pdfcreator  = {\name},
+	pdfkeywords = {\slist},
+}
+
+\begin{document}
+	\thispagestyle{empty} % remove page number
+	\drawframe % set background colors
+
+	%--------------------------------------------------------------------------
+	%	LEFT COLUMN
+	%--------------------------------------------------------------------------
+
+	\begin{textblock}{\sidebarwidth}(0.5, 0.5)
+		\namesection
+
+		\customsectionleft{Informations}
+
+		\info{location1}{Montr\'eal, CA}
+		\\ \info{social}{@liambeguin}
+		\\ \info{language}{fran\c cais, anglais}
+		\\ \info{phone1}{(514) 430-8113}
+		\\ \info{email1}{\href{mailto:liambeguin@gmail.com}{liambeguin@gmail.com}}
+		% \\ \info{car}{driver's license, no car}
+		\vspace{0.6cm}
+
+		\customsectionleft{Sommaire}
+
+		Au cours de mon travail en tant que d\'eveloppeur logiciel, j'ai pu
+		perfectionner mes connaissances en programmation (C, Bash, Python) et
+		apprendre beaucoup sur les concepts d'architecture logicielles embarqu\'ee.
+		Prochaimenemt, j'aimerai am\'eliorer mes connaissances sur le noyaux Linux
+		et commencer a travailler avec la comunaut\'e. Au cours de mes exp\'eriences,
+		je me suis aperçu que je pouvais m'adapter rapidement \`a de nouveaux
+		objectifs et contraintes fix\'es par l'industrie de pointe. Je suis
+		reconnu pour ma curiosité scientifique et mon travail autonome.
+		\vspace{1cm}
+
+		\customsectionleft{Comp\'etences}
+
+		\begin{tabular}{ll}
+			Bash          & \showdots{7} \\
+			Yocto         & \showdots{6} \\
+			Git           & \showdots{5} \\
+			C             & \showdots{7} \\
+			Python        & \showdots{6} \\
+			Linux kernel  & \showdots{3} \\
+			Vim           & \showdots{7} \\
+		\end{tabular} \\ \\
+
+		\drawslist{}
+
+	\end{textblock}
+
+
+
+	%--------------------------------------------------------------------------
+	%	RIGHT COLUMN
+	%--------------------------------------------------------------------------
+	\begin{textblock}{13.5}(7.5, 0.5)
+		\customsectionright{Exp\'eriences}
+
+		\jobtitle{Xiphos Systems Corporation}{Montr\'eal, CA}
+		D\'edi\'e essentiellement au domaine spatial, {\em Xiphos systems}
+		offre des solutions hybride logique et logicielle, fournissant par exemple
+		des capacit\'es de contr\^ole pour diverses charges utiles.
+
+		\begin{description}
+			\item[Mots cl\'es:] Yocto, Linux shell, Linux kernel, U-Boot, Git, Xilinx zynq, gcc
+			\item[D\'eveloppeur logiciel junior - Mi-temps] \dotfill 05/2015 \`a \emph{aujourd'hui}
+				\subitem{D\'eveloppement de logiciel embarqu\'e}
+				\subitem{Maintenance de distribution linux}
+			\item[D\'eveloppeur logiciel junior - Stage] \dotfill 09/2014 \`a 04/2015
+				\subitem{Assurance qualit\'e}
+		\end{description}
+
+		\jobtitle{HiKoB}{Grenoble, FR}
+		La mission de {\em HiKoB} est de d\'evelopper des syst\`emes d'acquisition
+		sans fil, multipoints et autonomes dans le but de capturer l'information
+		directement sur le terrain.
+
+		\begin{description}
+			\item[Mots cl\'es:] Altium designer, STM32, Git, openlab, C, IMU
+			\item[d\'eveloppeur logiciel junior - Stage] \dotfill 04/2013 \`a 07/2013
+				\subitem{Conception de cartes \'electroniques (PCB)}
+				\subitem{D\'eveloppement de logiciel embarqu\'e}
+		\end{description}
+
+		\customsectionright{Projets}
+
+		\jobtitle{Dronolab}{Montr\'eal, CA}
+		L'objectif premier de ce club \'etudiant est de d\'evelopper et op\'erer
+		des drones autonomes. Ces multirotors peuvent ensuite etre utilises dans
+		des missions de reconnaissance a\'eriennes dans des applications civiles.
+
+		\begin{description}
+			\item[Mots cl\'es:] Altium designer, STM32, Control theory, Yocto, Linux, iMX6
+			\item[Responsabiliti\'es] \hfill
+				\subitem{Conception de cartes \'electroniques (PCB)}
+				\subitem{D\'eveloppement du code de l'autopilote et de la charge utile}
+				\subitem{Membre de l'\'equipe de competition \`a \emph{Unmanned Systems Canada} (2014, 2015)}
+				\subitem{Membre de l'\'equipe de competition \`a \emph{AUVSI Seafarer} (2015)}
+		\end{description}
+
+		\customsectionright{Education}
+
+			\centerline{\textbf{\large{Baccalaur\'eat en g\'enie \'electrique}}}
+			\'Ecole de Technologie Sup\'erieure (ETS) \textbullet{} Montr\'eal, CA \dotfill 09/2013 \`a 12/2017 \\
+
+			\centerline{\textbf{\large{Dipl\^ome d'\'etudes coll\'egiales en \'electronique et en informatique}}}
+			Universit\'e Joseph Fourier \textbullet{} Grenoble, FR \dotfill 09/2011 \`a 07/2013 \\
+	\end{textblock}
+\end{document}
+% vim: cc=80
